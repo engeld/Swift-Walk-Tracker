@@ -84,7 +84,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIToolbarD
         mapView.addOverlay(polyLine())
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let walk = walkStore.currentWalk {
             for location in locations {
                 if let newLocation = location as? CLLocation {
@@ -161,7 +161,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIToolbarD
         return nil
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
         if let polyLine = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: polyLine)
             renderer.strokeColor = UIColor(hue:0.88, saturation:0.46, brightness:0.73, alpha:0.75)
