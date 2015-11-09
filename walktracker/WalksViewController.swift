@@ -46,8 +46,7 @@ class WalksViewController: UIViewController, UIToolbarDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-        
+        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")!
         let allWalks = WalkStore.sharedInstance.allWalks
         let walk = allWalks[indexPath.row]
         cell.textLabel?.text = dateFormatter.stringFromDate(walk.startTimestamp)
